@@ -4,7 +4,9 @@ An AC-to-DC converter that turns low-voltage AC from a step-down transformer int
 
 ![Schematic](schematic.svg)
 
-![PCB Layout](pcb-layout.png)
+![PCB Layout](pcb-layout2.png)
+
+![PCB Top and Bottom](pcb-layout.png)
 
 ## Overview
 
@@ -108,7 +110,8 @@ All parts are through-hole, so the board is easy to hand-solder.
 | `ac-dc-bridge-rectifier-NPTH.drl` | Non-plated through-hole drill file |
 | `gerbers/` | Gerber files (copper, mask, silkscreen, paste, edge cuts, job file) |
 | `schematic.svg` | Schematic preview image |
-| `pcb-layout.png` | PCB preview (top and bottom) rendered from the Gerbers |
+| `pcb-layout2.png` | PCB layout preview (KiCad editor view) |
+| `pcb-layout.png` | PCB top and bottom render from the Gerbers |
 
 ## How to Use
 
