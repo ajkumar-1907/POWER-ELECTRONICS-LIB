@@ -47,10 +47,11 @@ where ΔVout = desired output voltage ripple.
 
 | Parameter | Value |
 |---|---|
-| Input Voltage | *fill in* |
-| Output Voltage | *fill in* |
-| Output Current | *fill in* |
-| Switching Frequency | *fill in* |
+| Input Voltage | 7–40 V DC (LM2596 limit; C1 rated 50 V) |
+| Output Voltage | 5 V fixed (LM2596S-5) |
+| Output Current | Up to 3 A (LM2596 rating; heatsink the tab via copper pour) |
+| Switching Frequency | 150 kHz (fixed) |
+| Board Size | 51 × 36 mm, 2-layer, 4 × M2 mounting holes |
 
 ## Pros & Cons
 
@@ -73,6 +74,7 @@ where ΔVout = desired output voltage ripple.
 | `buck-converter.kicad_pcb` | PCB layout source file |
 | `buck-converter-PTH.drl` | Plated through-hole drill file |
 | `buck-converter-NPTH.drl` | Non-plated through-hole drill file |
+| `gerbers/` | Gerber files for fabrication |
 | `schematic.svg` | Schematic preview image |
 | `pcb-layout.png` | PCB layout preview image |
 
@@ -85,4 +87,4 @@ where ΔVout = desired output voltage ripple.
 
 ## License
 
-Schematics and PCB design files are licensed under [CERN-OHL-S-2.0](https://ohwr.org/cern_ohl_s_v2.txt). See the repository's `LICENSE-HARDWARE` file for details.
+Released under the [MIT License](../LICENSE).
