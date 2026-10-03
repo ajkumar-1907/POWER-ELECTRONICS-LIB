@@ -81,7 +81,7 @@ where ΔVout = desired output voltage ripple.
 ## How to Use
 
 1. Clone or download this repository.
-2. Open `buck-converter.kicad_pro` in [KiCad](https://www.kicad.org/) (v7 or later recommended).
+2. Open `buck-converter.kicad_pro` in [KiCad](https://www.kicad.org/) (v10 or later recommended).
 3. Modify component values in the schematic to suit your voltage/current requirements (see equations above).
 4. Re-run the PCB layout if you change footprints, then re-export Gerbers for manufacturing.
 
