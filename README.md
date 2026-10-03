@@ -7,7 +7,7 @@ Every project ships with a schematic, PCB layout, Gerbers, working principle, de
 
 [![KiCad](https://img.shields.io/badge/KiCad-10.0-314CB0?logo=kicad&logoColor=white)](https://www.kicad.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Projects](https://img.shields.io/badge/projects-8-brightgreen)
+![Projects](https://img.shields.io/badge/projects-9-brightgreen)
 ![Fab Ready](https://img.shields.io/badge/Gerbers-included-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet.svg)](#-contributing)
 
@@ -58,6 +58,12 @@ Click any board to open its folder.
       <b><a href="air-quality-monitor/">IoT Air Quality Monitor</a></b><br/><sub>IoT · ESP8266</sub>
     </td>
   </tr>
+  <tr>
+    <td align="center">
+      <a href="airtap/"><img src="airtap/pcb-3d-top.png" width="140" alt="AirTap touchless AC switch"/></a><br/>
+      <b><a href="airtap/">AirTap</a></b><br/><sub>Home automation · Touchless switch</sub>
+    </td>
+  </tr>
 </table>
 
 ---
@@ -92,6 +98,12 @@ Click any board to open its folder.
 | [**USB to UART Converter**](usb-to-uart-converter/) | USB-C ↔ serial bridge | CP2102N | USB 5 V | ESD protection, TX/RX LEDs, DTR auto-reset |
 | [**IoT Air Quality Monitor**](air-quality-monitor/) | Wi-Fi gas-sensing node | ESP-12E + MQ-135 | USB-C / Li-ion | TP4056 charger, MT3608 boost, CH340C auto-flash, OLED |
 
+### 🏠 Home Automation
+
+| Project | Function | Key IC | Supply | Highlights |
+|---|---|---|---|---|
+| [**AirTap**](airtap/) | Touchless AC relay switch | ATmega328 + VL53L0X | 220 V AC (HLK-5M05) | Hand-wave switching (10–30 mm), fused + MOV-protected, relay/buzzer/LEDs, test firmware. Fork of [ProxiWave-D](https://github.com/ampnics/Proxiwave-D) (MIT) |
+
 ---
 
 ## 📊 Specs at a glance
@@ -106,6 +118,7 @@ Click any board to open its folder.
 | [Servo Tester](servo-tester/) | Signal | 30.5 × 27.8 mm | 2 | THT | — | ✅ |
 | [USB to UART Converter](usb-to-uart-converter/) | Interface | 31 × 15 mm | 2 | SMD (0201, QFN) | — | ✅ |
 | [IoT Air Quality Monitor](air-quality-monitor/) | IoT | 68 × 47.4 mm | 2 | SMD + THT | ✅ | ✅ |
+| [AirTap](airtap/) | Home automation | 50 × 100 mm | 2 | SMD + THT | ✅ | ✅ |
 
 ---
 
@@ -182,7 +195,7 @@ Found a mistake? [Open an issue](https://github.com/ajkumar-1907/power-converter
 
 ## ⚠️ Safety
 
-Several projects work with **mains voltage** or **high currents**. The Transformerless Power Supply in particular is **not isolated**: every point on it, including the output, can be at lethal potential. Only build these if you understand the risks, and always read each project's Design Notes first.
+Several projects work with **mains voltage** or **high currents**. The Transformerless Power Supply and AirTap connect directly to mains, and the Transformerless Power Supply in particular is **not isolated**: every point on it, including the output, can be at lethal potential. Only build these if you understand the risks, and always read each project's Design Notes first.
 
 ---
 
