@@ -5,7 +5,7 @@ https://github.com/ampnics/Proxiwave-D
 
 The schematic, PCB layout and firmware test sketches are the original work of Ampnics (author: Md Ammar Maniyar). They are redistributed here under the terms of the MIT License, reproduced below.
 
-Modifications in this fork (by Anuj Kumar): board silkscreen re-branded "AIR-TAP", project ported to KiCad 10, Gerbers regenerated, and documentation and images added.
+Modifications in this fork by Anuj Kumar.
 
 ---
 
