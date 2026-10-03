@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "DAB_3k3W")(type "KiCad")(uri "${KIPRJMOD}/DAB_3k3W.pretty")(options "")(descr "DAB_3k3W project footprints"))
+)

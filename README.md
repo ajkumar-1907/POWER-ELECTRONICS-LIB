@@ -7,7 +7,7 @@ Every project ships with a schematic, PCB layout, Gerbers, working principle, de
 
 [![KiCad](https://img.shields.io/badge/KiCad-10.0-314CB0?logo=kicad&logoColor=white)](https://www.kicad.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Projects](https://img.shields.io/badge/projects-9-brightgreen)
+![Projects](https://img.shields.io/badge/projects-10-brightgreen)
 ![Fab Ready](https://img.shields.io/badge/Gerbers-included-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet.svg)](#-contributing)
 
@@ -63,6 +63,10 @@ Click any board to open its folder.
       <a href="airtap/"><img src="airtap/pcb-3d-top.png" width="140" alt="AirTap touchless AC switch"/></a><br/>
       <b><a href="airtap/">AirTap</a></b><br/><sub>Home automation · Touchless switch</sub>
     </td>
+    <td align="center">
+      <a href="dual-active-bridge/"><img src="dual-active-bridge/pcb-3d-angle.png" width="200" alt="Dual Active Bridge 3.3 kW"/></a><br/>
+      <b><a href="dual-active-bridge/">Dual Active Bridge</a></b><br/><sub>DC-DC · Bidirectional, isolated · 3.3 kW</sub>
+    </td>
   </tr>
 </table>
 
@@ -76,6 +80,7 @@ Click any board to open its folder.
 |---|---|---|---|---|
 | [**Buck Converter**](buck-converter/) | Step-down (non-isolated) | LM2596S-5 | 7–40 V DC → **5 V**, 3 A | 150 kHz switcher, 33 µH inductor, Schottky freewheel |
 | [**Boost Converter**](boost-converter/) | Step-up (non-isolated) | XL6009 | 5–32 V DC → **adj. up to ~35 V** | 4 A switch, 400 kHz, multi-turn trimmer, thermal-via array |
+| [**Dual Active Bridge**](dual-active-bridge/) | Bidirectional, isolated (2 × full bridge) | C3M0060065K SiC + UCC21520 | **400 V ↔ 350 V**, 3.3 kW | 20 kHz phase-shift control, V2G-ready, 3 isolated domains, reinforced-isolated V/I sensing. ⚠️ High voltage |
 
 ### 🔌 AC-DC Converters
 
@@ -119,6 +124,7 @@ Click any board to open its folder.
 | [USB to UART Converter](usb-to-uart-converter/) | Interface | 31 × 15 mm | 2 | SMD (0201, QFN) | — | ✅ |
 | [IoT Air Quality Monitor](air-quality-monitor/) | IoT | 68 × 47.4 mm | 2 | SMD + THT | ✅ | ✅ |
 | [AirTap](airtap/) | Home automation | 50 × 100 mm | 2 | SMD + THT | ✅ | ✅ |
+| [Dual Active Bridge](dual-active-bridge/) | DC-DC (isolated) | 220 × 150 mm | 4 | SMD + THT | ✅ | ✅ |
 
 ---
 
@@ -160,7 +166,7 @@ cd power-converter-lib
 
 1. Open the project folder you want.
 2. Zip the contents of `gerbers/` **together with** the two `.drl` files.
-3. Upload the zip to any PCB fab (JLCPCB, PCBWay, etc.). The default 2-layer, 1.6 mm FR-4 settings work for every board here.
+3. Upload the zip to any PCB fab (JLCPCB, PCBWay, etc.). The default 2-layer, 1.6 mm FR-4 settings work for every board here except the Dual Active Bridge, which needs **4 layers, 2 oz copper**.
 4. **Read the project's Design Notes before ordering.** Some boards list parts that need values set or ratings checked.
 
 
@@ -180,7 +186,7 @@ Found a mistake? [Open an issue](https://github.com/ajkumar-1907/power-converter
 
 ## ⚠️ Safety
 
-Several projects work with **mains voltage** or **high currents**. The Transformerless Power Supply and AirTap connect directly to mains, and the Transformerless Power Supply in particular is **not isolated**: every point on it, including the output, can be at lethal potential. Only build these if you understand the risks, and always read each project's Design Notes first.
+Several projects work with **mains voltage** or **high currents**. The Transformerless Power Supply and AirTap connect directly to mains, the Dual Active Bridge runs at **400 V DC** with large stored capacitor energy, and the Transformerless Power Supply in particular is **not isolated**: every point on it, including the output, can be at lethal potential. Only build these if you understand the risks, and always read each project's Design Notes first.
 
 ---
 

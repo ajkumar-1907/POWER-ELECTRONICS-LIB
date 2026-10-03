@@ -1,0 +1,108 @@
+(version 1)
+# DAB_3k3W high-voltage rules. Netclass = <domain>_<kind>_<potential>, domains P (primary 400 V),
+# S (secondary 350 V), C (control). Gate nets share the potential of their Kelvin source.
+
+(rule "HV: 3 mm between different potentials of one power domain"
+  (condition "A.NetClass != B.NetClass && ((A.NetClass == 'P_*' && B.NetClass == 'P_*') || (A.NetClass == 'S_*' && B.NetClass == 'S_*')) && !((A.NetClass == '*_A' && B.NetClass == '*_A') || (A.NetClass == '*_B' && B.NetClass == '*_B') || (A.NetClass == '*_C' && B.NetClass == '*_C') || (A.NetClass == '*_D' && B.NetClass == '*_D') || (A.NetClass == '*_DIV1' && B.NetClass == '*_DIV1') || (A.NetClass == '*_DIV2' && B.NetClass == '*_DIV2') || (A.NetClass == '*_N1' && B.NetClass == '*_N1') || (A.NetClass == '*_N2' && B.NetClass == '*_N2') || (A.NetClass == '*_V1' && B.NetClass == '*_V1') || (A.NetClass == '*_V2' && B.NetClass == '*_V2'))")
+  (constraint clearance (min 3.0mm)))
+
+(rule "Divider string: 1 mm (each 1206 sees < 100 V)"
+  (condition "A.NetClass != B.NetClass && ((A.NetClass == 'P_DIV_*' && B.NetClass == 'P_*') || (B.NetClass == 'P_DIV_*' && A.NetClass == 'P_*') || (A.NetClass == 'S_DIV_*' && B.NetClass == 'S_*') || (B.NetClass == 'S_DIV_*' && A.NetClass == 'S_*'))")
+  (constraint clearance (min 1.0mm)))
+
+(rule "Reinforced isolation: 8 mm between domains"
+  (condition "(A.NetClass == 'P_*' && (B.NetClass == 'S_*' || B.NetClass == 'C_*')) || (A.NetClass == 'S_*' && (B.NetClass == 'P_*' || B.NetClass == 'C_*')) || (A.NetClass == 'C_*' && (B.NetClass == 'P_*' || B.NetClass == 'S_*'))")
+  (constraint clearance (min 8.0mm)))
+
+(rule "HV power copper to board edge and slots"
+  (condition "A.NetClass == '*_PWR_*'")
+  (constraint edge_clearance (min 2.0mm)))
+
+(rule "Isolator U1: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('U1') && B.insideCourtyard('U1')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator U2: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('U2') && B.insideCourtyard('U2')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator U3: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('U3') && B.insideCourtyard('U3')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator U4: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('U4') && B.insideCourtyard('U4')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator U5: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('U5') && B.insideCourtyard('U5')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator U6: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('U6') && B.insideCourtyard('U6')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS1: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS1') && B.insideCourtyard('PS1')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS2: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS2') && B.insideCourtyard('PS2')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS3: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS3') && B.insideCourtyard('PS3')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS4: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS4') && B.insideCourtyard('PS4')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS5: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS5') && B.insideCourtyard('PS5')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS6: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS6') && B.insideCourtyard('PS6')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS7: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS7') && B.insideCourtyard('PS7')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS8: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS8') && B.insideCourtyard('PS8')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS9: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS9') && B.insideCourtyard('PS9')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator PS10: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('PS10') && B.insideCourtyard('PS10')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator CS1: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('CS1') && B.insideCourtyard('CS1')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator CS2: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('CS2') && B.insideCourtyard('CS2')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator C7: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('C7') && B.insideCourtyard('C7')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator C8: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('C8') && B.insideCourtyard('C8')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator C9: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('C9') && B.insideCourtyard('C9')")
+  (constraint clearance (min 0.25mm)))
+
+(rule "Isolator C10: its own pins are rated for the barrier"
+  (condition "A.Type != 'Zone' && B.Type != 'Zone' && A.insideCourtyard('C10') && B.insideCourtyard('C10')")
+  (constraint clearance (min 0.25mm)))
+

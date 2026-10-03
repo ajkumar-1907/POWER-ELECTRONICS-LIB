@@ -1,0 +1,310 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "0017e8b2-29ec-4fa2-9467-77f636830a19")
+	(paper "A3")
+	(title_block
+		(title "DAB_3k3W - 3.3 kW DAB power board (top level)")
+		(date "2026-10-03")
+		(rev "3.0")
+		(company "Delhi Technological University - Dept. of Electrical Engineering")
+		(comment 1 "B.Tech Major Project-I (2026-27): 3.3 kW bidirectional DAB for EV charging with V2G")
+		(comment 2 "Anuj Kumar (23EE039), Ankush (23EE033)")
+		(comment 3 "V1 400 V | V2 350 V | 3.3 kW | fs 20 kHz | n 8:7 | Lk 291 uH | dead time 0.5 us")
+		(comment 4 "Rev 3.0: hierarchical - Bridge1, Bridge2, GateDrive, Sensing, Connectors")
+	)
+	(lib_symbols)
+	(text "DEVIATIONS FROM THE PLAN (see README): 8 gate supplies instead of 6 - with Kelvin-source MOSFETs each\nlow-side driver must return to its own Kelvin pin, so the two low sides cannot share one supply.\nCurrent sensors: LEM LTSR 25-NP (single +5 V) instead of LAH 25-NP (needs +/-15 V)."
+		(exclude_from_sim no)
+		(at 25.4 248.92 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "40387341-f5b7-4922-afc0-371d38599d74")
+	)
+	(text "DAB_3k3W - 3.3 kW BIDIRECTIONAL DUAL ACTIVE BRIDGE - LAB PROTOTYPE POWER BOARD"
+		(exclude_from_sim no)
+		(at 25.4 25.4 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "b20f7ef6-fc54-450f-b1b5-098b37e0ae71")
+	)
+	(text "Sheets connect through global labels (V1+, PGND1, V2+, PGND2, A, B, C, D, G1..G8, S1..S8, PWM1..8, +5V, +3V3, GND ...)."
+		(exclude_from_sim no)
+		(at 25.4 33.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e5469dd2-790a-4782-9b7d-36dc90ab4201")
+	)
+	(text "DESIGN DATA (from the project report)\nV1 = 400 V DC bus      V2 = 350 V battery (300 V min)      P = 3.3 kW\nfs = 20 kHz            n = N1:N2 = 8:7                     Lk = 291 uH (off-board)\nSPS: P = n V1 V2 phi (pi - |phi|) / (2 pi^2 fs Lk);  phi > 0: G2V,  phi < 0: V2G\nSwitches: 650 V SiC 60 mOhm TO-247-4 (Kelvin source). Dead time 0.5 us."
+		(exclude_from_sim no)
+		(at 25.4 205.74 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left bottom)
+		)
+		(uuid "f1dc28e6-82be-406a-b191-344e71a7ae64")
+	)
+	(text "THREE ISOLATED DOMAINS (no copper crosses between them):\n  PRIMARY 400 V   : Bridge 1, C1, DC-bus terminals, ground net PGND1\n  SECONDARY 350 V : Bridge 2, C2, battery terminals, ground net PGND2\n  CONTROL 3.3/5 V : J9, logic side of drivers and sensors, ground net GND\nBridged only by: transformer (off-board), UCC21520 drivers, MGJ2 supplies, AMC1311s, LTSR sensors.\nPCB: >= 8 mm creepage + 2 mm routed slot under every isolator; >= 3 mm between HV nets."
+		(exclude_from_sim no)
+		(at 25.4 160.02 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left bottom)
+		)
+		(uuid "fbc3fc66-e329-4825-942f-2ffc72a81269")
+	)
+	(sheet
+		(at 220.98 60.96)
+		(size 50.8 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0a2490f0-42d1-42dc-8e71-449041a69718")
+		(property "Sheetname" "Bridge2"
+			(at 220.98 60.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Bridge2.kicad_sch"
+			(at 220.98 92.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dual-active-bridge"
+				(path "/94b9fda0-813e-4506-9fef-37cb75ff7942"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 93.98 60.96)
+		(size 50.8 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "4b6f94b4-de6a-463d-bf89-a8f88e1fa78c")
+		(property "Sheetname" "Bridge1"
+			(at 93.98 60.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Bridge1.kicad_sch"
+			(at 93.98 92.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dual-active-bridge"
+				(path "/94b9fda0-813e-4506-9fef-37cb75ff7942"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 157.48 60.96)
+		(size 50.8 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "bc504cbe-37e0-4bd1-9e68-73657bf72502")
+		(property "Sheetname" "GateDrive"
+			(at 157.48 60.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "GateDrive.kicad_sch"
+			(at 157.48 92.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dual-active-bridge"
+				(path "/94b9fda0-813e-4506-9fef-37cb75ff7942"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 157.48 114.3)
+		(size 50.8 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f6fecc9e-1bf5-4231-92ca-1a9dee19f09b")
+		(property "Sheetname" "Sensing"
+			(at 157.48 113.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Sensing.kicad_sch"
+			(at 157.48 145.38 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dual-active-bridge"
+				(path "/94b9fda0-813e-4506-9fef-37cb75ff7942"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 30.48 60.96)
+		(size 50.8 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f79a0594-6b27-4b3b-85ae-285b6cd487d8")
+		(property "Sheetname" "Connectors"
+			(at 30.48 60.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Connectors.kicad_sch"
+			(at 30.48 92.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dual-active-bridge"
+				(path "/94b9fda0-813e-4506-9fef-37cb75ff7942"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
