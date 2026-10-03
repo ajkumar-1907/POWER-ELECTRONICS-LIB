@@ -163,21 +163,6 @@ cd power-converter-lib
 3. Upload the zip to any PCB fab (JLCPCB, PCBWay, etc.). The default 2-layer, 1.6 mm FR-4 settings work for every board here.
 4. **Read the project's Design Notes before ordering.** Some boards list parts that need values set or ratings checked.
 
----
-
-## 🗺️ Roadmap
-
-- [x] Buck converter (LM2596)
-- [x] Boost converter (XL6009)
-- [x] Full-wave bridge rectifier
-- [x] Transformerless (capacitive dropper) supply
-- [x] PWM DC motor speed controller
-- [ ] Buck-boost / SEPIC converter
-- [ ] Flyback converter (isolated)
-- [ ] Dual Active Bridge (bidirectional DC-DC)
-- [ ] DC-AC inverter (H-bridge, SPWM)
-- [ ] AC-AC converter (TRIAC phase control)
-- [ ] KiCad source for the AC-DC bridge rectifier
 
 ---
 
